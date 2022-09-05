@@ -5,12 +5,13 @@ import mx.com.gm.peliculas.negocio.CatalogoPeliculasImpl;
 
 public class CPJLaboratorioFinal {
     static Scanner scanner;
-    static int opcion;
+    // 1static int opcion;
     static String nombreArchivo = "peliculas.txt";
     static CatalogoPeliculasImpl catalogoPeliculas;
 
     public static void main(String[] args) {
         StringBuilder str = new StringBuilder();
+        catalogoPeliculas = new CatalogoPeliculasImpl();
         scanner = new Scanner(System.in);
 
         str.append("Elige opción:\n");
@@ -22,7 +23,8 @@ public class CPJLaboratorioFinal {
 
         System.out.print(str);
 
-        opcion = scanner.nextInt();
+        int opcion = scanner.nextInt();
+        scanner.nextLine();
 
         selection: switch (opcion) {
             case 1:
@@ -42,6 +44,7 @@ public class CPJLaboratorioFinal {
                 catalogoPeliculas.buscarPelicula(nombreArchivo, buscar);
                 break;
             case 0:
+                System.out.println("Adios\n");
                 break;
             default:
                 System.out.println("Elige un número del 0 al 4");
