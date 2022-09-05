@@ -47,7 +47,7 @@ public class AccesoDatosImpl implements AccesoDatos {
             }
             reader.close();
         } catch (IOException e) {
-            throw new LecturaDatosEx();
+            throw new LecturaDatosEx(e.getMessage());
         }
         return lista;
     }
@@ -62,7 +62,7 @@ public class AccesoDatosImpl implements AccesoDatos {
             bw.close();
 
         } catch (IOException e) {
-            throw new EscrituraDatosEx();
+            throw new EscrituraDatosEx(e.getMessage());
         }
 
     }
@@ -81,7 +81,7 @@ public class AccesoDatosImpl implements AccesoDatos {
             }
             reader.close();
         } catch (IOException e) {
-            throw new LecturaDatosEx();
+            throw new LecturaDatosEx(e.getMessage());
         }
         return null;
     }

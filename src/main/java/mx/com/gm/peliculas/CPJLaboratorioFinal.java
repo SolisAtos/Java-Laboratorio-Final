@@ -19,6 +19,7 @@ public class CPJLaboratorioFinal {
         str.append("2.- Agregar pelicula\n");
         str.append("3.- Listar peliculas\n");
         str.append("4.- Buscar pelicula\n");
+        str.append("5.- Borrar catálogo de peliculas\n");
         str.append("0.- Salir\n");
 
         System.out.print(str);
