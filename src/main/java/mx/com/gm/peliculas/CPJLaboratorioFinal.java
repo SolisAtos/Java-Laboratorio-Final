@@ -1,13 +1,13 @@
 package mx.com.gm.peliculas;
 
 import java.util.Scanner;
-import mx.com.gm.peliculas.negocio.CatalogoPeliculas;
+import mx.com.gm.peliculas.negocio.CatalogoPeliculasImpl;
 
 public class CPJLaboratorioFinal {
     static Scanner scanner;
     static int opcion;
-    static String nombreArchivo;
-    static CatalogoPeliculas catalogoPeliculas;
+    static String nombreArchivo = "peliculas.txt";
+    static CatalogoPeliculasImpl catalogoPeliculas;
 
     public static void main(String[] args) {
         StringBuilder str = new StringBuilder();
