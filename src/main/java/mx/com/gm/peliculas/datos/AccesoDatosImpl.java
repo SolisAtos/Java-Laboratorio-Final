@@ -20,6 +20,10 @@ import mx.com.gm.peliculas.excepciones.LecturaDatosEx;
 
 public class AccesoDatosImpl implements AccesoDatos {
 
+    public AccesoDatosImpl() {
+
+    }
+
     @Override
     public boolean existe(String nombreArchivo) {
         File f = new File(nombreArchivo);
