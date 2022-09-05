@@ -1,18 +1,51 @@
 package mx.com.gm.peliculas;
 
-/**
- * Hello world!
- */
-public final class CPJLaboratorioFinal {
-    private CPJLaboratorioFinal() {
-    }
+import java.util.Scanner;
+import mx.com.gm.peliculas.negocio.CatalogoPeliculas;
 
-    /**
-     * Says hello to the world.
-     * 
-     * @param args The arguments of the program.
-     */
+public class CPJLaboratorioFinal {
+    static Scanner scanner;
+    static int opcion;
+    static String nombreArchivo;
+    static CatalogoPeliculas catalogoPeliculas;
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        StringBuilder str = new StringBuilder();
+        scanner = new Scanner(System.in);
+
+        str.append("Elige opción:\n");
+        str.append("1.- Iniciar catalogo peliculas\n");
+        str.append("2.- Agregar pelicula\n");
+        str.append("3.- Listar peliculas\n");
+        str.append("4.- Buscar pelicula\n");
+        str.append("0.- Salir\n");
+
+        System.out.print(str);
+
+        opcion = scanner.nextInt();
+
+        selection: switch (opcion) {
+            case 1:
+                catalogoPeliculas.iniciarArchivo(nombreArchivo);
+                break;
+            case 2:
+                System.out.println("Introduce el nombre de una pelicula a agregar:\n");
+                String nombrePelicula = scanner.nextLine();
+                catalogoPeliculas.agregarPelicula(nombrePelicula, nombreArchivo);
+                break;
+            case 3:
+                catalogoPeliculas.listarPeliculas(nombreArchivo);
+                break;
+            case 4:
+                System.out.println("Introduce el nombre de una pelicula a buscar:\n");
+                String buscar = scanner.nextLine();
+                catalogoPeliculas.buscarPelicula(nombreArchivo, buscar);
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("Elige un número del 0 al 4");
+                break selection;
+        }
     }
 }
