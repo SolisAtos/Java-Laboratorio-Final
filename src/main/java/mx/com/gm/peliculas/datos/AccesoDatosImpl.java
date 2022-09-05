@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import mx.com.gm.peliculas.domain.Pelicula;
+import mx.com.gm.peliculas.excepciones.AccesoDatosEx;
 import mx.com.gm.peliculas.excepciones.EscrituraDatosEx;
 import mx.com.gm.peliculas.excepciones.LecturaDatosEx;
 
@@ -25,10 +26,14 @@ public class AccesoDatosImpl implements AccesoDatos {
     }
 
     @Override
-    public boolean existe(String nombreArchivo) {
+    public boolean existe(String nombreArchivo) throws AccesoDatosEx {
         File f = new File(nombreArchivo);
-        if (f.exists() && !f.isDirectory()) {
-            return true;
+        try {
+            if (f.exists() && !f.isDirectory()) {
+                return true;
+            }
+        } catch (Exception e) {
+            throw new AccesoDatosEx(e.getMessage());
         }
         return false;
     }

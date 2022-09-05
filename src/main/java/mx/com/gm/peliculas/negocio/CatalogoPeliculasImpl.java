@@ -7,7 +7,7 @@ import mx.com.gm.peliculas.excepciones.EscrituraDatosEx;
 import mx.com.gm.peliculas.excepciones.LecturaDatosEx;
 
 public class CatalogoPeliculasImpl implements CatalogoPeliculas {
-    AccesoDatosImpl datos;
+    private final AccesoDatos datos;
 
     public CatalogoPeliculasImpl() {
         this.datos = new AccesoDatosImpl();
